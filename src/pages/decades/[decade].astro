@@ -1,0 +1,14 @@
+---
+export function getStaticPaths () {
+    return [
+      {params: {decade: '1970'}},
+      {params: {decade: '1960'}},
+      {params: {decade: '1950'}}, 
+    ];
+  }
+    const { decade } = Astro.params;
+---
+
+  
+  <div>Entering decade {decade}</div>
+  <a href="/select">Back to select</a>
