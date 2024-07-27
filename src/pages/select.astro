@@ -1,17 +1,28 @@
-<nav>
-    Select decade
-    <ul>
-        <li>
-            <a href="/decades/1970">1970</a>
-        </li>
-        <li>
-            <a href="/decades/1960">1960</a>
-        </li>
-        <li>
-            <a href="/decades/1950">1950</a>
-        </li>
-        <li>
-            <a href="/videos">Videos</a>
-        </li>
-    </ul>
-</nav>
+---
+import { Record } from '../components/Record'
+import { Link } from '../components/Link'
+
+import { decades } from '../utils/utils'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Select Decade">
+    <nav class="flex flex-col gap-4">
+        <a href="/" class="text-blue-400">Back to Attract Screen</a>
+        Select decade
+        <ul class="flex items-center gap-4">
+            {
+                decades.map((decade) => (
+                    <li>
+                        <Link client:visible href={`/decades/${decade}`}>
+                            <Record client:visible>{decade}</Record>
+                        </Link>
+                    </li>
+                ))
+            }
+            <li>
+                <a href="/videos">Videos</a>
+            </li>
+        </ul>
+    </nav>
+</Layout>

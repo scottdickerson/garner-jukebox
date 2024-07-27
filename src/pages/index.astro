@@ -1,15 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-
+import Layout from '../layouts/Layout.astro'
+import { CoinAndSlot } from '../components/CoinAndSlot'
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		Attract Screen
-		<a href="/select">Select Contents</a>
-	</main>
+<Layout title="Garner Jukebox App">
+    <main>
+        Attract Screen
+        <div class="flex justify-between absolute bottom-0 w-full">
+            <CoinAndSlot client:load imageSrc="/images/Coin.png" />
+            <CoinAndSlot client:load imageSrc="/images/CoinSpanish.png" />
+        </div>
+    </main>
 </Layout>
 
-<style>
-	
-</style>
+<style></style>
