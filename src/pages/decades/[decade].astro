@@ -1,14 +1,17 @@
 ---
-export function getStaticPaths () {
-    return [
-      {params: {decade: '1970'}},
-      {params: {decade: '1960'}},
-      {params: {decade: '1950'}}, 
-    ];
-  }
-    const { decade } = Astro.params;
+import Layout from '../../layouts/Layout.astro'
+import { decades } from '../../utils/utils'
+
+export function getStaticPaths() {
+    return decades.map((decade) => ({ params: { decade } }))
+}
+const { decade } = Astro.params
 ---
 
-  
-  <div>Entering decade {decade}</div>
-  <a href="/select">Back to select</a>
+<Layout title={`Decade: ${decade}`}>
+    <div class="flex flex-col gap-4">
+        Entering decade {decade}<a href="/select" class="text-blue-400"
+            >Back to select</a
+        >
+    </div>
+</Layout>
