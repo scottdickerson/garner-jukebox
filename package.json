@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "format:fix": "prettier --write .",
-    "production": "serve -l 3000 dist"
+    "production": "serve -l 3000 dist",
+    "prepare": "husky"
   },
   "dependencies": {
     "@astrojs/check": "^0.8.3",

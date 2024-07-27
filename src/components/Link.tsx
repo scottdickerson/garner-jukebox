@@ -1,4 +1,4 @@
-import type { JSX, ParentProps } from 'solid-js'
+import type { ParentProps } from 'solid-js'
 import { delayedClick } from '../utils/utils'
 
 export const Link = ({
