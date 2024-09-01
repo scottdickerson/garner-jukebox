@@ -1,30 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import { AttractScreenCoins } from '../components/AttractScreenCoins'
+import 'animate.css'
 ---
 
 <Layout title="Garner Jukebox App">
-    <main class="relative">
+    <main class="relative w-[2260px] h-[1261px]">
+        <img src="/images/AttractClip.svg" class="absolute z-10" />
         <div
-            class="relative pt-[175px] card-flip-container w-screen h-screen flex flex-col items-center bg-attractScreen bg-cover bg-center overflow-clip"
+            class="relative pt-[175px] card-flip-container h-full flex flex-col items-center bg-attractScreen bg-cover bg-center overflow-clip"
         >
             <img
                 src="/images/RecordLarge.svg"
                 alt="Record"
-                class="absolute left-0 top-0 rotate-x-animation"
+                class="absolute left-[-100px] top-[-240px] rotate-x-animation"
+            />
+            <img
+                src="/images/RecordLarge.svg"
+                alt="Record"
+                class="absolute right-[-100px] top-[-400px] rotate-x-animation"
+            />
+            <img
+                src="/images/RecordLarge.svg"
+                alt="Record"
+                class="absolute top-[500px] left-[500px] rotate-x-animation"
             />
             <img
                 src="/images/TitleEnglish.svg"
                 alt="Garner Jukebox"
-                class="w-[1000px] absolute card rotate-y-animation"
+                class="w-[1150px] absolute card rotate-y-animation"
             />
             <img
                 src="/images/TitleEnglishBlue.svg"
                 alt="Garner Jukebox"
-                class="w-[1000px] absolute card rotate-y-animation-reverse"
+                class="w-[1150px] absolute card rotate-y-animation-reverse"
             />
         </div>
-        <div class="flex justify-between absolute bottom-0 w-full">
+        <div class="flex justify-between absolute bottom-0 w-full pl-24 pr-24">
             <AttractScreenCoins client:load />
         </div>
     </main>
