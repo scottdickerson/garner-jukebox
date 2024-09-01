@@ -9,6 +9,7 @@ export const AttractScreenCoins = () => {
     let coinSoundRef: HTMLAudioElement | undefined = undefined
     const delayedOnClick = delayedClick(
         () => (window.location.href = '/select'),
+        () => {},
         2000
     )
     const handleOnClick = (

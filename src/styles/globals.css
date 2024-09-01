@@ -1,0 +1,54 @@
+@keyframes rotateX {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rotate-x-animation {
+    animation: rotateX 5s linear infinite;
+}
+
+@keyframes rotateY {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes rotateYReverse {
+    from {
+        transform: rotateY(-180deg);
+    }
+    to {
+        transform: rotateY(180deg);
+    }
+}
+
+.rotate-y-animation {
+    animation: rotateY 8s linear infinite;
+}
+.rotate-y-animation-reverse {
+    animation: rotateYReverse 8s linear infinite;
+}
+
+@font-face {
+    font-family: 'Pacifico';
+    src: url('/fonts/Pacifico-Regular-subset.woff') format('woff');
+}
+
+.font-pacifico {
+    font-family: 'Pacifico', cursive;
+    line-height: 77px;
+    font-size: 65px;
+}
+
+.font-tuffy {
+    font-family: 'Tuffy, sans-serif';
+    line-height: 63px;
+    font-size: 35px;
+}

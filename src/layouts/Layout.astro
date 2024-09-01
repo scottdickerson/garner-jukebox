@@ -1,4 +1,6 @@
 ---
+import 'animate.css'
+import '../styles/globals.css'
 interface Props {
     title: string
 }
@@ -16,8 +18,16 @@ const { title } = Astro.props
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
-    <body class="h-svh bg-blue-500">
-        <slot />
+    <body class="h-svh bg-transparent text-white">
+        <main
+            class="relative w-[2260px] h-[1261px] flex flex-col items-center bg-attractScreen bg-cover bg-center overflow-clip pb-28 pl-40 pr-40"
+        >
+            <img
+                src="/images/AttractClip.svg"
+                class="absolute z-10 pointer-events-none"
+            />
+            <slot />
+        </main>
     </body>
 </html>
 <style is:global></style>

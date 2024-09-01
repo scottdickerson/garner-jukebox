@@ -1,86 +1,44 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import { AttractScreenCoins } from '../components/AttractScreenCoins'
-import 'animate.css'
 ---
 
 <Layout title="Garner Jukebox App">
-    <main class="relative w-[2260px] h-[1261px]">
-        <img src="/images/AttractClip.svg" class="absolute z-10" />
-        <div
-            class="relative pt-[175px] card-flip-container h-full flex flex-col items-center bg-attractScreen bg-cover bg-center overflow-clip"
-        >
-            <img
-                src="/images/RecordLarge.svg"
-                alt="Record"
-                class="absolute left-[-100px] top-[-240px] rotate-x-animation"
-            />
-            <img
-                src="/images/RecordLarge.svg"
-                alt="Record"
-                class="absolute right-[-100px] top-[-400px] rotate-x-animation"
-            />
-            <img
-                src="/images/RecordLarge.svg"
-                alt="Record"
-                class="absolute top-[500px] left-[500px] rotate-x-animation"
-            />
-            <img
-                src="/images/TitleEnglish.svg"
-                alt="Garner Jukebox"
-                class="w-[1150px] absolute card rotate-y-animation"
-            />
-            <img
-                src="/images/TitleEnglishBlue.svg"
-                alt="Garner Jukebox"
-                class="w-[1150px] absolute card rotate-y-animation-reverse"
-            />
-        </div>
-        <div class="flex justify-between absolute bottom-0 w-full pl-24 pr-24">
-            <AttractScreenCoins client:load />
-        </div>
-    </main>
+    <div
+        class="relative pt-[175px] card-flip-container h-full w-full flex flex-col items-center"
+    >
+        <img
+            src="/images/RecordLarge.svg"
+            alt="Record"
+            class="absolute left-[-240px] top-[-240px] rotate-x-animation"
+        />
+        <img
+            src="/images/RecordLarge.svg"
+            alt="Record"
+            class="absolute top-[425px] left-[400px] rotate-x-animation"
+        />
+        <img
+            src="/images/RecordLarge.svg"
+            alt="Record"
+            class="absolute right-[-200px] top-[-450px] rotate-x-animation"
+        />
+
+        <img
+            src="/images/TitleEnglish.svg"
+            alt="Garner Jukebox"
+            class="w-[1150px] absolute card"
+        />
+        <img
+            src="/images/TitleEnglishBlue.svg"
+            alt="Garner Jukebox"
+            class="w-[1150px] absolute card -reverse"
+        />
+    </div>
+    <div class="flex justify-between absolute bottom-0 w-full pl-24 pr-24">
+        <AttractScreenCoins client:load />
+    </div>
 </Layout>
-
 <style>
-    @keyframes rotateX {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    .rotate-x-animation {
-        animation: rotateX 5s linear infinite;
-    }
-
-    @keyframes rotateY {
-        from {
-            transform: rotateY(0deg);
-        }
-        to {
-            transform: rotateY(360deg);
-        }
-    }
-
-    @keyframes rotateYReverse {
-        from {
-            transform: rotateY(-180deg);
-        }
-        to {
-            transform: rotateY(180deg);
-        }
-    }
-
-    .rotate-y-animation {
-        animation: rotateY 8s linear infinite;
-    }
-    .rotate-y-animation-reverse {
-        animation: rotateYReverse 8s linear infinite;
-    }
-
     .card-flip-container {
         perspective: 1000px; /* Remove this if you don't want the 3D effect */
     }
