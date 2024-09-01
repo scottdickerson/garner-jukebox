@@ -1,4 +1,4 @@
-import { CoinAndSlot, type CoinAndSlotProps } from '../components/CoinAndSlot'
+import { CoinAndSlot } from '../components/CoinAndSlot'
 import { createSignal } from 'solid-js'
 import { delayedClick } from '../utils/utils'
 
