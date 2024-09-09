@@ -1,9 +1,10 @@
 import classNames from 'classnames'
 import { createSignal, type ComponentProps } from 'solid-js'
 import { Link } from './Link'
+import { translatedStrings } from '../utils/utils'
 
-export const FilmReel = (
-    props: ComponentProps<'li'> & { shouldPulse: boolean }
+export const FilmReelNavItem = (
+    props: ComponentProps<'li'> & { shouldPulse: boolean; lang: 'en' | 'es' }
 ) => {
     const [isClicked, setIsClicked] = createSignal(false)
     let audioRef: HTMLAudioElement | undefined = undefined
@@ -17,18 +18,19 @@ export const FilmReel = (
                         props.shouldPulse,
                 },
                 'ml-auto',
-                { 'rotate-x-animation': isClicked() }
+                { 'animate-spin': isClicked() }
+                // { 'rotate-x-animation': isClicked() }
             )}
             onClick={() => {
-                audioRef!.play()
+                // audioRef!.play()
                 setIsClicked(true)
             }}
         >
             <Link
                 class="flex flex-col justify-center text-center  w-[350px] h-[350px] bg-cover bg-center bg-filmReel"
-                href="/videos"
+                href={`/${props.lang}/videos`}
             >
-                Videos
+                {translatedStrings[props.lang].videos}
             </Link>
             <audio ref={audioRef} src="/sounds/film-reel.mp3"></audio>
         </li>

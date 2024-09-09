@@ -8,16 +8,16 @@ export const AttractScreenCoins = () => {
     >()
     let coinSoundRef: HTMLAudioElement | undefined = undefined
     const delayedOnClick = delayedClick(
-        () => (window.location.href = '/select'),
+        (_event, lang) => (window.location.href = `/${lang}/select`),
         () => {},
         2000
     )
     const handleOnClick = (
-        selectedCoin: 'english' | 'spanish',
-        event: MouseEvent
+        event: MouseEvent,
+        selectedCoin: 'english' | 'spanish'
     ) => {
         coinSoundRef!.play() // typescript can't figure out this solidJS ref is not null
-        delayedOnClick(event)
+        delayedOnClick(event, selectedCoin === 'english' ? 'en' : 'es')
         setSelectedCoin(selectedCoin)
     }
 
@@ -28,14 +28,14 @@ export const AttractScreenCoins = () => {
                 imageSrc="/images/Coin.png"
                 imageClickedSrc="/images/CoinOnly.png"
                 isClicked={() => selectedCoin() === 'english'}
-                onClick={(event) => handleOnClick('english', event)}
+                onClick={(event) => handleOnClick(event, 'english')}
                 isCoinHidden={() => selectedCoin() === 'spanish'}
             />
             <CoinAndSlot
                 imageSrc="/images/CoinSpanish.png"
                 imageClickedSrc="/images/CoinOnlySpanish.png"
                 isClicked={() => selectedCoin() === 'spanish'}
-                onClick={(event) => handleOnClick('spanish', event)}
+                onClick={(event) => handleOnClick(event, 'spanish')}
                 isCoinHidden={() => selectedCoin() === 'english'}
             />
         </>

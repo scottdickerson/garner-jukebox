@@ -1,10 +1,14 @@
 import classNames from 'classnames'
 import { decades } from '../utils/utils'
-import { Record } from './Record'
-import { FilmReel } from './FilmReel'
+import { RecordNavItem } from './RecordNavItem'
+import { FilmReelNavItem } from './FilmReelNavItem'
 import { createSignal } from 'solid-js'
 
-export const DecadeNavigation = () => {
+export interface DecadeNavigationProps {
+    lang: 'en' | 'es'
+}
+
+export const DecadeNavigation = (props: DecadeNavigationProps) => {
     const [isTransitioning, setIsTransitioning] = createSignal(false)
     let recordSoundRef: HTMLAudioElement | undefined = undefined
     return (
@@ -16,22 +20,25 @@ export const DecadeNavigation = () => {
                 onClick={() => setIsTransitioning(true)}
             >
                 <ul class="flex items-center gap-16">
-                    {decades.map((decade, index) => (
-                        <Record
+                    {decades.map(({ decade }, index) => (
+                        <RecordNavItem
                             class={classNames(
                                 { 'translate-y-4': index % 2 === 0 },
                                 { '-translate-y-4': index % 2 === 1 }
                             )}
                             onClick={() => {
-                                recordSoundRef!.play()
+                                // recordSoundRef!.play()
                             }}
-                            href={`/decades/${decade}`}
+                            href={`/${props.lang}/decades/${decade}/1`}
                             shouldPulse={!isTransitioning()}
                         >
                             {decade}
-                        </Record>
+                        </RecordNavItem>
                     ))}
-                    <FilmReel shouldPulse={!isTransitioning()} />
+                    <FilmReelNavItem
+                        lang={props.lang}
+                        shouldPulse={!isTransitioning()}
+                    />
                 </ul>
             </nav>
             <audio ref={recordSoundRef} src="/sounds/CountryCue.m4a"></audio>

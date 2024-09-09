@@ -1,0 +1,33 @@
+---
+import Layout from '../../../../layouts/Layout.astro'
+import { decades, translatedStrings } from '../../../../utils/utils'
+import { PhotoDetails } from '../../../../components/PhotoDetails'
+
+const decadeAudioFiles = decades.map(({ decade }) => ({
+    decade,
+    audio: `/sounds/${decade}.mp3`,
+}))
+
+export function getStaticPaths() {
+    return Object.keys(translatedStrings).flatMap((lang) =>
+        decades.flatMap(({ decade, photos }) =>
+            photos.map((photo) => ({ params: { decade, photo, lang } }))
+        )
+    )
+}
+const { decade, photo, lang } = Astro.params
+---
+
+<Layout title={`Decade: ${decade}`}>
+    <PhotoDetails
+        lang={lang}
+        decade={decade}
+        photo={photo}
+        src="/images/Coin.png"
+        caption={photo}
+        lang={lang}
+    />
+    <audio
+        src={decadeAudioFiles.find((d) => d.decade === decade)?.audio}
+        autoplay></audio>
+</Layout>

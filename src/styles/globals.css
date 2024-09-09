@@ -1,3 +1,12 @@
+body {
+    user-select: none;
+    a,
+    img {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+}
+
 @keyframes rotateX {
     from {
         transform: rotate(0deg);
@@ -41,6 +50,11 @@
     src: url('/fonts/Pacifico-Regular-subset.woff') format('woff');
 }
 
+@font-face {
+    font-family: 'Tuffy';
+    src: url('/fonts/Tuffy.woff2') format('woff');
+}
+
 .font-pacifico {
     font-family: 'Pacifico', cursive;
     line-height: 77px;
@@ -48,7 +62,7 @@
 }
 
 .font-tuffy {
-    font-family: 'Tuffy, sans-serif';
+    font-family: 'Tuffy';
     line-height: 63px;
     font-size: 35px;
 }

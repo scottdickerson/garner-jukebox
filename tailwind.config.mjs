@@ -4,7 +4,8 @@ export default {
     theme: {
         extend: {
             backgroundImage: {
-                record: "url('/images/Record250px.png')",
+                record: "url('/images/RecordLarge.svg')",
+                recordSmall: "url('/images/RecordSmall.png')",
                 attractScreen: "url('/images/AttractScreenBackground.png')",
                 filmReel: "url('/images/film-reel-icon.svg')",
             },

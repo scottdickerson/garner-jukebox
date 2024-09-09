@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import { DecadeNavigation } from '../../components/DecadeNavigation'
+import { translatedStrings } from '../../utils/utils'
+
+export function getStaticPaths() {
+    return Object.keys(translatedStrings).map((language: string) => ({
+        params: { lang: language },
+    }))
+}
+const { lang } = Astro.params as { lang: 'en' | 'es' }
+---
+
+<Layout title="Select Decade">
+    <div class="flex flex-col h-full gap-4 justify-end items-center pb-28">
+        <div class="flex gap-10 items-center">
+            <img
+                src={`/images/Title${lang === 'en' ? 'English' : 'Spanish'}.svg`}
+                class="w-[830px] h-[625px]"
+            />
+            <p class="max-w-[400px] font-tuffy">
+                {translatedStrings[lang].garnerDescription}
+            </p>
+        </div>
+        <DecadeNavigation lang={lang} client:visible />
+    </div>
+</Layout>

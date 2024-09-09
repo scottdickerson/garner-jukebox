@@ -12,7 +12,8 @@ export const Link = (
         class={classNames(props.class, 'cursor-pointer block')}
         onClick={delayedClick(
             () => (window.location.href = props.href?.toString() ?? '/'),
-            (event) => props.onClick?.(event)
+            (event) => props.onClick?.(event),
+            1000
         )}
     >
         {props.children}

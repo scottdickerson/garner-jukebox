@@ -2,7 +2,7 @@ import { createSignal, type ComponentProps, type ParentProps } from 'solid-js'
 import classNames from 'classnames'
 import { Link } from './Link'
 
-export const Record = (
+export const RecordNavItem = (
     props: ParentProps<
         {
             onClick: (event: MouseEvent) => void
@@ -17,9 +17,9 @@ export const Record = (
         <li {...props} class={classNames(props.class)}>
             <Link
                 class={classNames(
-                    'flex flex-col items-center justify-center rounded-full w-52 h-52 place-content-center text-center bg-cover bg-center bg-record',
+                    'flex flex-col items-center justify-center rounded-full w-[270px] h-[270px] place-content-center text-center bg-cover bg-center bg-recordSmall',
                     {
-                        'rotate-x-animation': isSpinning(),
+                        'animate-spin': isSpinning(),
                         'animate__animated animate__pulse animate__infinite animate__slow':
                             props.shouldPulse,
                     }
