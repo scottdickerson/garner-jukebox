@@ -55,14 +55,15 @@ body {
     src: url('/fonts/Tuffy.woff2') format('woff');
 }
 
-.font-pacifico {
+/* .font-pacifico {
     font-family: 'Pacifico', cursive;
     line-height: 77px;
     font-size: 65px;
+    font-weight: 300;
 }
 
 .font-tuffy {
     font-family: 'Tuffy';
     line-height: 63px;
     font-size: 35px;
-}
+} */

@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { createSignal, type ComponentProps } from 'solid-js'
 import { Link } from './Link'
-import { translatedStrings } from '../utils/utils'
+import { translatedStrings } from '../data/translations'
 
 export const FilmReelNavItem = (
     props: ComponentProps<'li'> & { shouldPulse: boolean; lang: 'en' | 'es' }
@@ -27,7 +27,7 @@ export const FilmReelNavItem = (
             }}
         >
             <Link
-                class="flex flex-col justify-center text-center  w-[350px] h-[350px] bg-cover bg-center bg-filmReel"
+                class="flex flex-col justify-center text-center  w-[285px] h-[285px] bg-cover bg-center bg-filmReel"
                 href={`/${props.lang}/videos`}
             >
                 {translatedStrings[props.lang].videos}

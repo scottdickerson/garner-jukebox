@@ -1,53 +1,68 @@
 import type { ParentProps } from 'solid-js'
+import { validatePhotoExists } from '../utils/utils'
 
-import { decades } from '../utils/utils'
-
-const validatePhotoExists = (decade: string, photo: string) => {
-    return decades.find(
-        ({ decade: existingDecade, photos: existingPhotos }) => {
-            return existingDecade === decade && existingPhotos.includes(photo)
-        }
-    )
-}
-
-export interface PhotoDetails extends ParentProps {
+export interface PhotoSwitcherProps extends ParentProps {
     decade: string
     photo: string
-    src: string
-    caption: string
     lang: string
+    caption?: string
 }
 
-export const PhotoDetails = (props: PhotoDetails) => {
+export const PhotoSwitcher = (props: PhotoSwitcherProps) => {
     const nextPhoto = parseInt(props.photo) + 1
     const previousPhoto = parseInt(props.photo) - 1
     return (
-        <div class="w-[1250px] h-[1250px] bg-recordSmall bg-cover">
-            <div class="flex items-center justify-center h-full">
+        <figure class="flex flex-col w-full items-center">
+            <div class="relative w-full flex items-center justify-center">
                 <a
                     href={`/${props.lang}/decades/${props.decade}/${previousPhoto}`}
-                    class={`text-4xl ${validatePhotoExists(props.decade, previousPhoto.toString()) ? 'text-white' : 'pointer-events-none text-gray-500'}`}
+                    class={`absolute left-7  w-9 h-16 ${validatePhotoExists(props.decade, previousPhoto.toString()) ? '' : 'pointer-events-none opacity-0'}`}
                 >
-                    Previous
+                    <img src="/images/PreviousArrow.svg" alt="Previous" />
                 </a>
-                <figure class="flex flex-col items-center">
-                    <img src={props.src} alt="photo" />
-                    {props.caption && (
-                        <figcaption class="text-white mt-2 ">
-                            {props.caption}
-                        </figcaption>
-                    )}
-                </figure>
+                <img
+                    src={`/images/${props.decade}/${props.decade}-${props.photo}.png`}
+                    alt={props.caption}
+                />
                 <a
                     href={`/${props.lang}/decades/${props.decade}/${nextPhoto}`}
-                    class={`text-4xl ${validatePhotoExists(props.decade, nextPhoto.toString()) ? 'text-white' : 'pointer-events-none text-gray-500'}`}
+                    class={`absolute right-7  w-9 h-16 ${validatePhotoExists(props.decade, nextPhoto.toString()) ? '' : 'pointer-events-none opacity-0'}`}
                 >
-                    Next
-                </a>
-                <a href={`/${props.lang}/select`} class="text-white text-4xl">
-                    Back (Language {props.lang})
+                    <img src="/images/NextArrow.svg" alt="Next" />
                 </a>
             </div>
+            {props.caption && (
+                <figcaption
+                    class="text-white max-w-[700px] text-center text-35 leading-45 font-tuffy "
+                    innerHTML={props.caption}
+                ></figcaption>
+            )}
+        </figure>
+    )
+}
+
+export interface PhotoDetails extends PhotoSwitcherProps {
+    title: string
+}
+
+export const PhotoDetails = (props: PhotoDetails) => {
+    return (
+        <div class="w-[1000px] h-[1000px] bg-recordSmall bg-cover flex items-center flex-col gap-11 pt-20 text-65 leading-77">
+            <div class="relative ">
+                <h1 class="text-white text-center font-pacifico">
+                    {`${props.decade}:`}
+                </h1>
+                <h2 class="text-white text-center font-pacifico">
+                    {props.title}
+                </h2>
+                <a
+                    href={`/${props.lang}/select`}
+                    class="absolute top-[35%] right-[-300px] w-14 h-14"
+                >
+                    <img src="/images/CloseButton.svg" alt="Close" />
+                </a>
+            </div>
+            <PhotoSwitcher {...props} />
         </div>
     )
 }

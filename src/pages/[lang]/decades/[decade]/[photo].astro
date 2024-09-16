@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../../layouts/Layout.astro'
-import { decades, translatedStrings } from '../../../../utils/utils'
+import { decades } from '../../../../data/imageDescriptions'
+import { translatedStrings } from '../../../../data/translations'
 import { PhotoDetails } from '../../../../components/PhotoDetails'
 
 const decadeAudioFiles = decades.map(({ decade }) => ({
@@ -10,22 +11,31 @@ const decadeAudioFiles = decades.map(({ decade }) => ({
 
 export function getStaticPaths() {
     return Object.keys(translatedStrings).flatMap((lang) =>
-        decades.flatMap(({ decade, photos }) =>
-            photos.map((photo) => ({ params: { decade, photo, lang } }))
+        decades.flatMap(({ decade, captions }) =>
+            captions?.map((_caption, index) => ({
+                params: { decade, photo: index.toString(), lang },
+            }))
         )
     )
 }
-const { decade, photo, lang } = Astro.params
+const { decade, photo, lang } = Astro.params ?? {
+    decade: 'Decade',
+    photo: '1',
+    lang: 'en',
+}
 ---
 
 <Layout title={`Decade: ${decade}`}>
     <PhotoDetails
+        title={decades.find((data) => data.decade === decade)?.title?.[
+            lang as keyof typeof translatedStrings
+        ] ?? ''}
         lang={lang}
         decade={decade}
         photo={photo}
-        src="/images/Coin.png"
-        caption={photo}
-        lang={lang}
+        caption={decades.find((data) => data.decade === decade)?.captions?.[
+            parseInt(photo) - 1
+        ][lang as keyof typeof translatedStrings]}
     />
     <audio
         src={decadeAudioFiles.find((d) => d.decade === decade)?.audio}

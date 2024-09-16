@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import { DecadeNavigation } from '../../components/DecadeNavigation'
-import { translatedStrings } from '../../utils/utils'
+import { translatedStrings } from '../../data/translations'
 
 export function getStaticPaths() {
     return Object.keys(translatedStrings).map((language: string) => ({
@@ -18,7 +18,7 @@ const { lang } = Astro.params as { lang: 'en' | 'es' }
                 src={`/images/Title${lang === 'en' ? 'English' : 'Spanish'}.svg`}
                 class="w-[830px] h-[625px]"
             />
-            <p class="max-w-[400px] font-tuffy">
+            <p class="max-w-[400px] text-35 font-tuffy">
                 {translatedStrings[lang].garnerDescription}
             </p>
         </div>

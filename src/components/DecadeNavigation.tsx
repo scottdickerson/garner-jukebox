@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { decades } from '../utils/utils'
+import { decades } from '../data/imageDescriptions'
 import { RecordNavItem } from './RecordNavItem'
 import { FilmReelNavItem } from './FilmReelNavItem'
 import { createSignal } from 'solid-js'
@@ -14,7 +14,7 @@ export const DecadeNavigation = (props: DecadeNavigationProps) => {
     return (
         <>
             <nav
-                class={classNames('w-full font-pacifico', {
+                class={classNames('w-full font-pacifico text-65', {
                     'pointer-events-none': isTransitioning(),
                 })}
                 onClick={() => setIsTransitioning(true)}
