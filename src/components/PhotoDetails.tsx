@@ -1,35 +1,44 @@
-import type { ParentProps } from 'solid-js'
+import { type ParentProps, createMemo } from 'solid-js'
 import { validatePhotoExists } from '../utils/utils'
 
-export interface PhotoSwitcherProps extends ParentProps {
+export interface ContentSwitcherProps extends ParentProps {
     decade: string
-    photo: string
-    lang: string
+    index: number
     caption?: string
+    hasPrevious?: boolean
+    hasNext?: boolean
+    onChangeContent: (index: number) => void
 }
 
-export const PhotoSwitcher = (props: PhotoSwitcherProps) => {
-    const nextPhoto = parseInt(props.photo) + 1
-    const previousPhoto = parseInt(props.photo) - 1
+export const ContentSwitcher = (props: ContentSwitcherProps) => {
+    const previousIndex = createMemo(() => props.index - 1)
+    const nextIndex = createMemo(() => props.index + 1)
+
     return (
         <figure class="flex flex-col w-full items-center">
             <div class="relative w-full flex items-center justify-center">
-                <a
-                    href={`/${props.lang}/decades/${props.decade}/${previousPhoto}`}
-                    class={`absolute left-7  w-9 h-16 ${validatePhotoExists(props.decade, previousPhoto.toString()) ? '' : 'pointer-events-none opacity-0'}`}
+                <button
+                    onClick={() => {
+                        console.log('set Previous Photo')
+                        return props.onChangeContent(previousIndex())
+                    }}
+                    class={`absolute left-7  w-9 h-16 ${validatePhotoExists(props.decade, previousIndex().toString()) ? '' : 'pointer-events-none opacity-0'}`}
                 >
                     <img src="/images/PreviousArrow.svg" alt="Previous" />
-                </a>
+                </button>
                 <img
-                    src={`/images/${props.decade}/${props.decade}-${props.photo}.png`}
+                    src={`/images/${props.decade}/${props.decade}-${props.index + 1}.png`}
                     alt={props.caption}
                 />
-                <a
-                    href={`/${props.lang}/decades/${props.decade}/${nextPhoto}`}
-                    class={`absolute right-7  w-9 h-16 ${validatePhotoExists(props.decade, nextPhoto.toString()) ? '' : 'pointer-events-none opacity-0'}`}
+                <button
+                    onClick={() => {
+                        console.log('set Next Photo')
+                        return props.onChangeContent(nextIndex())
+                    }}
+                    class={`absolute right-7  w-9 h-16 ${validatePhotoExists(props.decade, nextIndex().toString()) ? '' : 'pointer-events-none opacity-0'}`}
                 >
                     <img src="/images/NextArrow.svg" alt="Next" />
-                </a>
+                </button>
             </div>
             {props.caption && (
                 <figcaption
@@ -41,11 +50,12 @@ export const PhotoSwitcher = (props: PhotoSwitcherProps) => {
     )
 }
 
-export interface PhotoDetails extends PhotoSwitcherProps {
+export interface ContentDetails extends ContentSwitcherProps {
     title: string
+    lang: string
 }
 
-export const PhotoDetails = (props: PhotoDetails) => {
+export const ContentDetails = (props: ContentDetails) => {
     return (
         <div class="w-[1000px] h-[1000px] bg-recordSmall bg-cover flex items-center flex-col gap-11 pt-20 text-65 leading-77">
             <div class="relative ">
@@ -62,7 +72,7 @@ export const PhotoDetails = (props: PhotoDetails) => {
                     <img src="/images/CloseButton.svg" alt="Close" />
                 </a>
             </div>
-            <PhotoSwitcher {...props} />
+            <ContentSwitcher {...props} />
         </div>
     )
 }

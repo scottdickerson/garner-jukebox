@@ -29,7 +29,7 @@ export const DecadeNavigation = (props: DecadeNavigationProps) => {
                             onClick={() => {
                                 // recordSoundRef!.play()
                             }}
-                            href={`/${props.lang}/decades/${decade}/1`}
+                            href={`/${props.lang}/decades/${decade}`}
                             shouldPulse={!isTransitioning()}
                         >
                             {decade}

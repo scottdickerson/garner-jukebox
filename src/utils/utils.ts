@@ -15,12 +15,16 @@ export const delayedClick = (
 }
 
 export const validatePhotoExists = (decade: string, photo: string) => {
-    return decades.find(
+    return !!decades.find(
         ({ decade: existingDecade, captions: existingPhotos }) => {
             return (
-                existingDecade === decade &&
-                existingPhotos?.[parseInt(photo) - 1]
+                existingDecade === decade && existingPhotos?.[parseInt(photo)]
             )
         }
     )
 }
+
+export const decadeAudioFiles = decades.map(({ decade }) => ({
+    decade,
+    audio: `/sounds/${decade}.mp3`,
+}))

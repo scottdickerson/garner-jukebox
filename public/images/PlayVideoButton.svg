@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="168" height="168" viewBox="0 0 168 168">
+<mask id="myMask" >
+    <circle id="Ellipse_9" data-name="Ellipse 9" cx="84" cy="84" r="84" fill="#fff" />
+    <path d="M48.911,4.424a3,3,0,0,1,5.178,0l46.268,79.06A3,3,0,0,1,97.768,88H5.232a3,3,0,0,1-2.589-4.515Z" transform="translate(141.5 32.5) rotate(90)" fill="black"/>
+</mask>
+  <circle id="Ellipse_9" data-name="Ellipse 9" cx="84" cy="84" r="84" fill="#fff" opacity="0.854" mask="url(#myMask)"/>
+</svg>

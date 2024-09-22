@@ -1,8 +1,16 @@
 ---
+import { translatedStrings } from '../../data/translations'
 import Layout from '../../layouts/Layout.astro'
+
+export function getStaticPaths() {
+    return Object.keys(translatedStrings).map((language: string) => ({
+        params: { lang: language },
+    }))
+}
+const { lang } = Astro.params as { lang: 'en' | 'es' }
 ---
 
 <Layout title="Videos">
     <div>Videos</div>
-    <a href="/select">Back to select</a>
+    <a href={`/${lang}/select`}>Back to select</a>
 </Layout>

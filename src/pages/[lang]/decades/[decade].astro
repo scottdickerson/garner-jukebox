@@ -1,0 +1,30 @@
+---
+import { decades } from '../../../data/imageDescriptions'
+import { translatedStrings } from '../../../data/translations'
+import Layout from '../../../layouts/Layout.astro'
+import { ContentCarousel } from '../../../components/PhotoCarousel'
+import { decadeAudioFiles } from '../../../utils/utils'
+import { AudioPlayer } from '../../../components/AudioPlayer'
+
+export const getStaticPaths = () => {
+    return Object.keys(translatedStrings).flatMap((lang) =>
+        decades.map(({ decade }) => ({ params: { decade, lang } }))
+    )
+}
+
+const { decade, lang } = Astro.params ?? {
+    decade: 'Decade',
+    lang: 'en' as keyof typeof translatedStrings,
+}
+
+const audioSrc = decadeAudioFiles.find((d) => d.decade === decade)?.audio
+---
+
+<Layout title={`Decade: ${decade}`}>
+    <ContentCarousel
+        lang={lang as keyof typeof translatedStrings}
+        decade={decade}
+        client:visible
+    />
+    <AudioPlayer src={audioSrc} client:load />
+</Layout>
