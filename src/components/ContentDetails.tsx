@@ -4,6 +4,7 @@ import { validatePhotoExists } from '../utils/utils'
 export interface ContentSwitcherProps extends ParentProps {
     decade: string
     index: number
+    src: string
     caption?: string
     hasPrevious?: boolean
     hasNext?: boolean
@@ -26,10 +27,7 @@ export const ContentSwitcher = (props: ContentSwitcherProps) => {
                 >
                     <img src="/images/PreviousArrow.svg" alt="Previous" />
                 </button>
-                <img
-                    src={`/images/${props.decade}/${props.decade}-${props.index + 1}.png`}
-                    alt={props.caption}
-                />
+                <img src={props.src} alt={props.caption} />
                 <button
                     onClick={() => {
                         console.log('set Next Photo')

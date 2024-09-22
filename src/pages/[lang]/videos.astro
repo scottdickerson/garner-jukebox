@@ -1,4 +1,5 @@
 ---
+import { ContentCarousel } from '../../components/ContentCarousel'
 import { translatedStrings } from '../../data/translations'
 import Layout from '../../layouts/Layout.astro'
 
@@ -12,5 +13,5 @@ const { lang } = Astro.params as { lang: 'en' | 'es' }
 
 <Layout title="Videos">
     <div>Videos</div>
-    <a href={`/${lang}/select`}>Back to select</a>
+    <ContentCarousel lang={lang} decade="video" />
 </Layout>

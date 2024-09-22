@@ -2,6 +2,13 @@ export const decades = [
     {
         decade: '1930s',
         title: { en: 'The Party Begins', es: '' },
+        content: [
+            '/images/1930s/1930s-1.png',
+            '/images/1930s/1930s-2.png',
+            '/images/1930s/1930s-3.png',
+            '/images/1930s/1930s-4.png',
+            '/images/1930s/1930s-5.png',
+        ],
         captions: [
             {
                 en: 'Even before the dance pavilion existed, people were dancing under the stars at Garner.',
@@ -28,6 +35,14 @@ export const decades = [
     {
         decade: '1940s',
         title: { en: 'The Dance Floor', es: '' },
+        content: [
+            '/images/1940s/1940s-1.png',
+            '/images/1940s/1940s-2.png',
+            '/images/1940s/1940s-3.png',
+            '/images/1940s/1940s-4.png',
+            '/images/1940s/1940s-5.png',
+            '/images/1940s/1940s-6.png',
+        ],
         captions: [
             { en: 'Garner opened to the public in 1941.', es: '' },
             { en: 'The first jukebox arrived in this decade.', es: '' },
@@ -49,6 +64,13 @@ export const decades = [
     {
         decade: '1950s',
         title: { en: 'The Bop Era', es: '' },
+        content: [
+            '/images/1950s/1950s-1.png',
+            '/images/1950s/1950s-2.png',
+            '/images/1950s/1950s-3.png',
+            '/images/1950s/1950s-4.png',
+            '/images/1950s/1950s-5.png',
+        ],
         captions: [
             {
                 en: 'Summer nights during the 1950s saw the twirls of full-skirted petticoats under the stars in the pavilion.',
@@ -75,6 +97,14 @@ export const decades = [
     {
         decade: '1960s',
         title: { en: 'Whipping it up', es: '' },
+        content: [
+            '/images/1960s/1960s-1.png',
+            '/images/1960s/1960s-2.png',
+            '/images/1960s/1960s-3.png',
+            '/images/1960s/1960s-4.png',
+            '/images/1960s/1960s-5.png',
+            '/images/1960s/1960s-6.png',
+        ],
         captions: [
             {
                 en: 'Some say the 1960s were the heyday of dancing at Garner. ',
@@ -105,6 +135,12 @@ export const decades = [
     {
         decade: '1970s',
         title: { en: 'A Legacy of Fun', es: '' },
+        content: [
+            '/images/1970s/1970s-1.png',
+            '/images/1970s/1970s-2.png',
+            '/images/1970s/1970s-3.png',
+            '/images/1970s/1970s-4.png',
+        ],
         captions: [
             {
                 en: 'By the 1970s, the dance floor at Garner had become an institution. ',

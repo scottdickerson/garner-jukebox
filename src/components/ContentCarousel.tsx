@@ -1,5 +1,5 @@
-import { createSignal } from 'solid-js'
-import { ContentDetails } from './PhotoDetails'
+import { createMemo, createSignal } from 'solid-js'
+import { ContentDetails } from './ContentDetails'
 import { decades } from '../data/imageDescriptions'
 import type { translatedStrings } from '../data/translations'
 
@@ -10,6 +10,12 @@ export interface ContentCarouselProps {
 
 export const ContentCarousel = (props: ContentCarouselProps) => {
     const [contentIndex, setContentIndex] = createSignal(0)
+    const matchingContent = createMemo(
+        () =>
+            decades.find((data) => data.decade === props.decade)?.content?.[
+                contentIndex()
+            ]
+    )
 
     return (
         <ContentDetails
@@ -18,6 +24,7 @@ export const ContentCarousel = (props: ContentCarouselProps) => {
                     props.lang
                 ] ?? ''
             }
+            src={matchingContent() ?? ''}
             onChangeContent={(contentIndexData) => {
                 console.log('change content', contentIndexData)
                 setContentIndex(contentIndexData)
