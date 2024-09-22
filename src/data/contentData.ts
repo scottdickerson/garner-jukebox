@@ -48,8 +48,14 @@ export const imageAndVideoContent = [
             '/images/1940s/1940s-6.png',
         ],
         captions: [
-            { en: 'Garner opened to the public in 1941.', es: '' },
-            { en: 'The first jukebox arrived in this decade.', es: '' },
+            {
+                en: 'Garner opened to the public in 1941.',
+                es: 'Garner abrió al público en 1941.',
+            },
+            {
+                en: 'The first jukebox arrived in this decade.',
+                es: 'La primera rocola llegó en esta década.',
+            },
             {
                 en: 'One record that surely spun often on this early music machine was Gene Autry’s version of “Blueberry Hill.”',
                 es: 'Una grabación que seguramente sonaba con frecuencia en esta temprana máquina de música era la versión de “Blueberry Hill” de Gene Autry.',

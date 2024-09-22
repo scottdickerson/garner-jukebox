@@ -8,7 +8,7 @@ export const SendToAttractScreen = (props: SendToAttractScreenProps) => {
     const createTimer = () =>
         setInterval(() => {
             if (typeof window !== 'undefined') window.location.href = '/'
-        }, props.timeoutInMs ?? 30000)
+        }, props.timeoutInMs ?? 65000)
 
     let redirectTimer = createTimer()
 
