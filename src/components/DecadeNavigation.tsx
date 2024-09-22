@@ -20,7 +20,7 @@ export const ContentNavigation = (props: ContentNavigationProps) => {
                 onClick={() => setIsTransitioning(true)}
             >
                 <ul class="flex items-center gap-16">
-                    {imageAndVideoContent.map(({ id }, index) =>
+                    {imageAndVideoContent.map(({ id, heading }, index) =>
                         id !== VIDEOS ? (
                             <RecordNavItem
                                 class={classNames(
@@ -33,7 +33,7 @@ export const ContentNavigation = (props: ContentNavigationProps) => {
                                 href={`/${props.lang}/decades/${id}`}
                                 shouldPulse={!isTransitioning()}
                             >
-                                {id}
+                                {heading[props.lang]}
                             </RecordNavItem>
                         ) : (
                             <FilmReelNavItem

@@ -92,7 +92,9 @@ export const ContentDetails = (props: ContentDetails) => {
         >
             <div class="relative flex flex-col w-full">
                 <h1 class="text-white text-center font-pacifico min-h-[77px]">
-                    {props.heading ? `${props.heading}` : ''}
+                    {props.heading && props.contentId !== VIDEOS
+                        ? `${props.heading}:`
+                        : ''}
                 </h1>
                 <h2 class="text-white text-center font-pacifico min-h-[77px]">
                     {props.title}

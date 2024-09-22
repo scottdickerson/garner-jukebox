@@ -10,11 +10,12 @@ export interface ContentCarouselProps {
 
 export const ContentCarousel = (props: ContentCarouselProps) => {
     const [contentIndex, setContentIndex] = createSignal(0)
-    const matchingContent = createMemo(
-        () =>
-            imageAndVideoContent.find((data) => data.id === props.contentId)
-                ?.content?.[contentIndex()]
-    )
+    const matchingContent = createMemo(() => {
+        const content = imageAndVideoContent.find(
+            (data) => data.id === props.contentId
+        )?.content?.[contentIndex()]
+        return typeof content === 'string' ? content : content?.[props.lang]
+    })
 
     return (
         <ContentDetails
@@ -29,7 +30,7 @@ export const ContentCarousel = (props: ContentCarouselProps) => {
             }}
             heading={
                 imageAndVideoContent.find((data) => data.id === props.contentId)
-                    ?.heading
+                    ?.heading[props.lang]
             }
             lang={props.lang}
             contentId={props.contentId}
