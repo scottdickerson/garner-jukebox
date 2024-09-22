@@ -1,7 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro'
-import { DecadeNavigation } from '../../components/DecadeNavigation'
+import { ContentNavigation } from '../../components/DecadeNavigation'
 import { translatedStrings } from '../../data/translations'
+import { SendToAttractScreen } from '../../components/SendToAttractScreen'
 
 export function getStaticPaths() {
     return Object.keys(translatedStrings).map((language: string) => ({
@@ -22,6 +23,7 @@ const { lang } = Astro.params as { lang: 'en' | 'es' }
                 {translatedStrings[lang].garnerDescription}
             </p>
         </div>
-        <DecadeNavigation lang={lang} client:visible />
+        <ContentNavigation lang={lang} client:visible />
+        <SendToAttractScreen client:load />
     </div>
 </Layout>

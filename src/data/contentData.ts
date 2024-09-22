@@ -1,6 +1,9 @@
-export const decades = [
+export const VIDEOS = 'videos'
+
+export const imageAndVideoContent = [
     {
-        decade: '1930s',
+        id: '1930s',
+        heading: '1930s:',
         title: { en: 'The Party Begins', es: '' },
         content: [
             '/images/1930s/1930s-1.png',
@@ -33,7 +36,8 @@ export const decades = [
         ],
     },
     {
-        decade: '1940s',
+        id: '1940s',
+        heading: '1940s:',
         title: { en: 'The Dance Floor', es: '' },
         content: [
             '/images/1940s/1940s-1.png',
@@ -62,7 +66,8 @@ export const decades = [
         ],
     },
     {
-        decade: '1950s',
+        id: '1950s',
+        heading: '1950s:',
         title: { en: 'The Bop Era', es: '' },
         content: [
             '/images/1950s/1950s-1.png',
@@ -95,7 +100,8 @@ export const decades = [
         ],
     },
     {
-        decade: '1960s',
+        id: '1960s',
+        heading: '1960s:',
         title: { en: 'Whipping it up', es: '' },
         content: [
             '/images/1960s/1960s-1.png',
@@ -133,7 +139,8 @@ export const decades = [
         ],
     },
     {
-        decade: '1970s',
+        id: '1970s',
+        heading: '1970s:',
         title: { en: 'A Legacy of Fun', es: '' },
         content: [
             '/images/1970s/1970s-1.png',
@@ -156,6 +163,129 @@ export const decades = [
             },
             {
                 en: 'All parties have to come to an end, and when the dance floor closed in the 1970s, it was usually a slow dance to “The Last Song” by Gene Thomas.',
+                es: '',
+            },
+        ],
+    },
+    {
+        id: VIDEOS,
+        content: [
+            '/images/videos/ExploreTheseVideos.png',
+            '/videos/Navarro Home Videos/1963 Swimming at Garner State Park.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 1.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 2.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 3.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 4.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 5.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 6.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 7.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 8.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 9.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 10.mp4',
+            '/videos/Navarro Home Videos/1963 Trip to Garner State Park Part 11.mp4',
+            '/videos/Navarro Home Videos/1964 Garner State Park.mp4',
+            '/videos/Dance Videos/DontRockTheJukebox.mp4',
+            '/videos/Dance Videos/BabyBlue.mp4',
+            '/videos/Dance Videos/RockinRobin.mp4',
+            '/videos/Dance Videos/JukeboxShots.mp4',
+        ],
+        captions: [
+            {
+                en: '',
+                es: '',
+            },
+            {
+                en: 'Swimming at Garner State Park<br/>Texas 1963',
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+1: Leaving Houston<br/>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+2: Arriving at the park</br>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+3: Getting snacks and heading to the water<br/>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+4: Cooking and swimming<br/>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+5: Squirrels, swimming and horses</br>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+6: Riding horses & dancing teenagers<br/>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+7: Setting up camp<br/>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+8: Scenes around the camp site<br/>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+9: On the river and at the pavilion<br/>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+10: Swimming and miniature golf<br/>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Trip to Garner State Park<br/>
+11: Around the camp and on the river<br/>
+Texas 1963`,
+                es: '',
+            },
+            {
+                en: `Garner State Park<br/>1964`,
+                es: '',
+            },
+            {
+                en: `Garner State Park Dance Floor<br/>
+“Don’t Rock the Jukebox”`,
+                es: '',
+            },
+            {
+                en: `Garner State Park Dance Floor<br/>
+“Baby Blue”`,
+                es: '',
+            },
+            {
+                en: `Garner State Park Dance Floor<br/>
+“Rockin’ Robin”`,
+                es: '',
+            },
+            {
+                en: `Garner State Park Dance Floor<br/>
+Jukebox Shots`,
                 es: '',
             },
         ],

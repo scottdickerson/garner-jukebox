@@ -2,6 +2,8 @@
 import { ContentCarousel } from '../../components/ContentCarousel'
 import { translatedStrings } from '../../data/translations'
 import Layout from '../../layouts/Layout.astro'
+import { VIDEOS } from '../../data/contentData'
+import { SendToAttractScreen } from '../../components/SendToAttractScreen'
 
 export function getStaticPaths() {
     return Object.keys(translatedStrings).map((language: string) => ({
@@ -12,6 +14,6 @@ const { lang } = Astro.params as { lang: 'en' | 'es' }
 ---
 
 <Layout title="Videos">
-    <div>Videos</div>
-    <ContentCarousel lang={lang} decade="video" />
+    <ContentCarousel lang={lang} contentId={VIDEOS} client:visible />
+    <SendToAttractScreen timeoutInMs={7 * 60 * 1000} client:load />
 </Layout>

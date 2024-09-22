@@ -21,6 +21,7 @@ export default {
                 recordSmall: "url('/images/RecordSmall.png')",
                 attractScreen: "url('/images/AttractScreenBackground.png')",
                 filmReel: "url('/images/film-reel-icon.png')",
+                filmReelLarge: "url('/images/film-reel-icon-1001px.png')",
             },
         },
     },

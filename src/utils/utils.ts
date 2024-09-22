@@ -1,4 +1,4 @@
-import { decades } from '../data/imageDescriptions'
+import { imageAndVideoContent } from '../data/contentData'
 
 export const delayedClick = (
     delayedCb: (event: MouseEvent, args?: unknown) => void,
@@ -14,17 +14,17 @@ export const delayedClick = (
     }
 }
 
-export const validatePhotoExists = (decade: string, photo: string) => {
-    return !!decades.find(
-        ({ decade: existingDecade, captions: existingPhotos }) => {
+export const validateContentExists = (decade: string, contentIndex: number) => {
+    return !!imageAndVideoContent.find(
+        ({ id: existingContent, captions: existingCaptions }) => {
             return (
-                existingDecade === decade && existingPhotos?.[parseInt(photo)]
+                existingContent === decade && existingCaptions?.[contentIndex]
             )
         }
     )
 }
 
-export const decadeAudioFiles = decades.map(({ decade }) => ({
+export const decadeAudioFiles = imageAndVideoContent.map(({ id: decade }) => ({
     decade,
     audio: `/sounds/${decade}.mp3`,
 }))
