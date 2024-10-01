@@ -20,7 +20,7 @@ export const ContentSwitcher = (props: ContentSwitcherProps) => {
     const [isVideoPlaying, setIsVideoPlaying] = createSignal(false)
     const isImage = createMemo(() => props.src?.includes('.png'))
 
-    let videoRef: HTMLVideoElement | undefined = undefined
+    let videoRef!: HTMLVideoElement
 
     return (
         <figure class="flex flex-col w-full items-center">
@@ -43,8 +43,7 @@ export const ContentSwitcher = (props: ContentSwitcherProps) => {
                             <button
                                 class="absolute z-10 inset-0 m-auto cursor-pointer flex justify-center items-center w-full h-full"
                                 onClick={() => {
-                                    // @ts-ignore
-                                    videoRef?.play()
+                                    videoRef.play()
                                     setIsVideoPlaying(true)
                                 }}
                             >
@@ -55,8 +54,34 @@ export const ContentSwitcher = (props: ContentSwitcherProps) => {
                             class="h-[410px]"
                             src={props.src}
                             ref={videoRef}
-                            controls={isVideoPlaying()}
+                            onClick={() => {
+                                if (videoRef) {
+                                    if (videoRef.paused) {
+                                        setIsVideoPlaying(true)
+                                        videoRef.play()
+                                    } else {
+                                        videoRef.pause()
+                                        setIsVideoPlaying(false)
+                                    }
+                                }
+                            }}
                         />
+                        {isVideoPlaying() ? (
+                            <input
+                                class="absolute z-10 bottom-1 left-0 right-0 h-11"
+                                type="range"
+                                value={0}
+                                max={100}
+                                onChange={(e) => {
+                                    if (videoRef) {
+                                        videoRef.currentTime =
+                                            // @ts-ignore
+                                            (e.target.value / 100) *
+                                            videoRef.duration
+                                    }
+                                }}
+                            ></input>
+                        ) : null}
                     </div>
                 )}
                 <button
