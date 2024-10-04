@@ -1,4 +1,9 @@
-import { type ParentProps, createMemo, createSignal } from 'solid-js'
+import {
+    type ParentProps,
+    createEffect,
+    createMemo,
+    createSignal,
+} from 'solid-js'
 import { validateContentExists } from '../utils/utils'
 import { VIDEOS } from '../data/contentData'
 
@@ -19,8 +24,28 @@ export const ContentSwitcher = (props: ContentSwitcherProps) => {
 
     const [isVideoPlaying, setIsVideoPlaying] = createSignal(false)
     const isImage = createMemo(() => props.src?.includes('.png'))
+    const [videoState, setVideoState] = createSignal<HTMLVideoElement | null>(
+        null
+    )
 
-    let videoRef!: HTMLVideoElement
+    const [currentProgress, setCurrentProgress] = createSignal(0)
+
+    createEffect(() => {
+        const video = videoState()
+        if (video) {
+            const updateProgress = () => {
+                setCurrentProgress(
+                    (video.currentTime /
+                        (!Number.isNaN(video.duration) ? video.duration : 1)) *
+                        100
+                )
+            }
+            video.addEventListener('timeupdate', updateProgress)
+            return () => {
+                video.removeEventListener('timeupdate', updateProgress)
+            }
+        }
+    })
 
     return (
         <figure class="flex flex-col w-full items-center">
@@ -43,7 +68,7 @@ export const ContentSwitcher = (props: ContentSwitcherProps) => {
                             <button
                                 class="absolute z-10 inset-0 m-auto cursor-pointer flex justify-center items-center w-full h-full"
                                 onClick={() => {
-                                    videoRef.play()
+                                    videoState()!.play()
                                     setIsVideoPlaying(true)
                                 }}
                             >
@@ -53,14 +78,14 @@ export const ContentSwitcher = (props: ContentSwitcherProps) => {
                         <video
                             class="h-[410px]"
                             src={props.src}
-                            ref={videoRef}
+                            ref={setVideoState}
                             onClick={() => {
-                                if (videoRef) {
-                                    if (videoRef.paused) {
+                                if (videoState()) {
+                                    if (videoState()!.paused) {
                                         setIsVideoPlaying(true)
-                                        videoRef.play()
+                                        videoState()!.play()
                                     } else {
-                                        videoRef.pause()
+                                        videoState()!.pause()
                                         setIsVideoPlaying(false)
                                     }
                                 }
@@ -70,14 +95,14 @@ export const ContentSwitcher = (props: ContentSwitcherProps) => {
                             <input
                                 class="absolute z-10 bottom-1 left-0 right-0 h-11"
                                 type="range"
-                                value={0}
+                                value={currentProgress()}
                                 max={100}
                                 onChange={(e) => {
-                                    if (videoRef) {
-                                        videoRef.currentTime =
+                                    if (videoState()) {
+                                        videoState()!.currentTime =
                                             // @ts-ignore
                                             (e.target.value / 100) *
-                                            videoRef.duration
+                                            videoState()!.duration
                                     }
                                 }}
                             ></input>
