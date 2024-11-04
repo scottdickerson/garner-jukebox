@@ -15,6 +15,7 @@ export default {
             fontSize: {
                 65: '65px',
                 35: '35px',
+                22: '22px',
             },
             backgroundImage: {
                 record: "url('/images/RecordLarge.svg')",

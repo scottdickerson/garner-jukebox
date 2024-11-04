@@ -1,0 +1,54 @@
+---
+import { VideoSelection } from '../../../components/VideoSelection'
+import Layout from '../../../layouts/Layout.astro'
+import { translatedStrings } from '../../../data/translations'
+
+const { lang, videoType } = Astro.params as {
+    lang: 'en' | 'es'
+    videoType: 'dance' | 'homeVideo'
+}
+
+export const getStaticPaths = () => {
+    return Object.keys(translatedStrings).flatMap((lang) =>
+        ['dance', 'homeVideo'].map((videoType) => ({
+            params: { videoType, lang },
+        }))
+    )
+}
+
+const videoImages = Array.from({ length: 4 }, (_, index) => {
+    const videoTypeName = videoType === 'dance' ? 'DanceFloor' : 'Home '
+    return `TitleScreens_${videoTypeName}Videos${index + 1}.png`
+})
+---
+
+<Layout title={`Select Video: ${videoType}`}>
+    <p class="max-w-[700px] text-35 font-tuffy text-center pb-10">
+        {translatedStrings[lang].videoSelect}
+    </p>
+    <VideoSelection lang={lang} videoImages={videoImages} />
+    <p class="max-w-[700px] text-22 font-tuffy text-center">
+        {
+            translatedStrings[lang][
+                videoType === 'homeVideo'
+                    ? 'videoSelectAttributionHome'
+                    : 'videoSelectAttributionDance'
+            ]
+        }
+    </p>
+    <div class="flex justify-center pt-10 text-35 font-tuffy">
+        <a
+            href={`/${lang}/videoSelect/dance`}
+            class={videoType === 'dance' ? 'underline underline-offset-4' : ''}
+        >
+            Dance Floor Videos
+        </a>&nbsp;|&nbsp; <a
+            href={`/${lang}/videoSelect/homeVideo`}
+            class={videoType === 'homeVideo'
+                ? 'underline underline-offset-8'
+                : ''}
+        >
+            Home Videos
+        </a>
+    </div>
+</Layout>

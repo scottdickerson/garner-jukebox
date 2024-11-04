@@ -28,7 +28,7 @@ export const FilmReelNavItem = (
         >
             <Link
                 class="flex flex-col justify-center text-center  w-[285px] h-[285px] bg-cover bg-center bg-filmReel"
-                href={`/${props.lang}/videos`}
+                href={`/${props.lang}/videoSelect/dance`} // start with dance floor videos
             >
                 {translatedStrings[props.lang].videos}
             </Link>
