@@ -1,5 +1,5 @@
 ---
-import { imageAndVideoContent } from '../../../data/contentData'
+import { decadesPicturesContent } from '../../../data/contentData'
 import { translatedStrings } from '../../../data/translations'
 import Layout from '../../../layouts/Layout.astro'
 import { ContentCarousel } from '../../../components/ContentCarousel'
@@ -9,7 +9,9 @@ import { SendToAttractScreen } from '../../../components/SendToAttractScreen'
 
 export const getStaticPaths = () => {
     return Object.keys(translatedStrings).flatMap((lang) =>
-        imageAndVideoContent.map(({ id }) => ({ params: { decade: id, lang } }))
+        decadesPicturesContent.map(({ id }) => ({
+            params: { decade: id, lang },
+        }))
     )
 }
 

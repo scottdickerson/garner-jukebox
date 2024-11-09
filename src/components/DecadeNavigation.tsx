@@ -1,5 +1,5 @@
 import classNames from 'classnames'
-import { imageAndVideoContent, VIDEOS } from '../data/contentData'
+import { decadesPicturesContent } from '../data/contentData'
 import { RecordNavItem } from './RecordNavItem'
 import { FilmReelNavItem } from './FilmReelNavItem'
 import { createSignal } from 'solid-js'
@@ -20,28 +20,25 @@ export const ContentNavigation = (props: ContentNavigationProps) => {
                 onClick={() => setIsTransitioning(true)}
             >
                 <ul class="flex items-center gap-16">
-                    {imageAndVideoContent.map(({ id, heading }, index) =>
-                        id !== VIDEOS ? (
-                            <RecordNavItem
-                                class={classNames(
-                                    { 'translate-y-4': index % 2 === 0 },
-                                    { '-translate-y-4': index % 2 === 1 }
-                                )}
-                                onClick={() => {
-                                    // recordSoundRef!.play()
-                                }}
-                                href={`/${props.lang}/decades/${id}`}
-                                shouldPulse={!isTransitioning()}
-                            >
-                                {heading[props.lang]}
-                            </RecordNavItem>
-                        ) : (
-                            <FilmReelNavItem
-                                lang={props.lang}
-                                shouldPulse={!isTransitioning()}
-                            />
-                        )
-                    )}
+                    {decadesPicturesContent.map(({ id, heading }, index) => (
+                        <RecordNavItem
+                            class={classNames(
+                                { 'translate-y-4': index % 2 === 0 },
+                                { '-translate-y-4': index % 2 === 1 }
+                            )}
+                            onClick={() => {
+                                // recordSoundRef!.play()
+                            }}
+                            href={`/${props.lang}/decades/${id}`}
+                            shouldPulse={!isTransitioning()}
+                        >
+                            {heading[props.lang]}
+                        </RecordNavItem>
+                    ))}
+                    <FilmReelNavItem
+                        lang={props.lang}
+                        shouldPulse={!isTransitioning()}
+                    />
                 </ul>
             </nav>
             <audio ref={recordSoundRef} src="/sounds/CountryCue.m4a"></audio>

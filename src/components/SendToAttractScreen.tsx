@@ -6,14 +6,14 @@ export interface SendToAttractScreenProps {
 
 export const SendToAttractScreen = (props: SendToAttractScreenProps) => {
     const createTimer = () =>
-        setInterval(() => {
+        setTimeout(() => {
             if (typeof window !== 'undefined') window.location.href = '/'
         }, props.timeoutInMs ?? 65000)
 
     let redirectTimer = createTimer()
 
     const clickListener = () => {
-        clearInterval(redirectTimer)
+        clearTimeout(redirectTimer)
         redirectTimer = createTimer()
     }
 
@@ -21,7 +21,7 @@ export const SendToAttractScreen = (props: SendToAttractScreenProps) => {
         window.addEventListener('mousedown', clickListener)
         onCleanup(() => {
             window.removeEventListener('mousedown', clickListener)
-            clearInterval(redirectTimer)
+            clearTimeout(redirectTimer)
         })
     })
 

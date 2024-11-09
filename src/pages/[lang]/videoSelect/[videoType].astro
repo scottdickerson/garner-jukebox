@@ -1,7 +1,11 @@
 ---
-import { VideoSelection } from '../../../components/VideoSelection'
+import {
+    VideoSelection,
+    type VideoSelectOption,
+} from '../../../components/VideoSelection'
 import Layout from '../../../layouts/Layout.astro'
 import { translatedStrings } from '../../../data/translations'
+import { SendToAttractScreen } from '../../../components/SendToAttractScreen'
 
 const { lang, videoType } = Astro.params as {
     lang: 'en' | 'es'
@@ -16,10 +20,16 @@ export const getStaticPaths = () => {
     )
 }
 
-const videoImages = Array.from({ length: 4 }, (_, index) => {
-    const videoTypeName = videoType === 'dance' ? 'DanceFloor' : 'Home '
-    return `TitleScreens_${videoTypeName}Videos${index + 1}.png`
-})
+const videoImages: VideoSelectOption[] = Array.from(
+    { length: 4 },
+    (_, index) => {
+        const videoTypeName = videoType === 'dance' ? 'DanceFloor' : 'Home'
+        return {
+            imageSrc: `TitleScreens_${videoTypeName}Video${index + 1}.png`,
+            href: `/${lang}/video/${videoType}/${index + 1}`,
+        }
+    }
+)
 ---
 
 <Layout title={`Select Video: ${videoType}`}>
@@ -51,4 +61,5 @@ const videoImages = Array.from({ length: 4 }, (_, index) => {
             Home Videos
         </a>
     </div>
+    <SendToAttractScreen timeoutInMs={7 * 60 * 1000} client:load />
 </Layout>
