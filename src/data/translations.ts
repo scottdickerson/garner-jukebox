@@ -7,6 +7,8 @@ export const translatedStrings = {
                 decades, it has been the scene of a legendary dance party. And
                 everyone is invited!`,
         videos: 'Videos',
+        homeMovies: 'Home Movies',
+        danceFloorVideos: 'Dance Floor Videos',
         videoSelect:
             'Explore these videos to experience the magic of Garner captured on film!',
         videoSelectAttributionDance: 'Videos courtesy Texas Parks & Wildlife.',
@@ -21,6 +23,8 @@ export const translatedStrings = {
                 décadas, ha sido el escenario de una legendaria fiesta de baile. ¡Y
                 todos están invitados!`,
         videos: 'Videos',
+        homeMovies: 'Películas caseras',
+        danceFloorVideos: 'Vídeos de pistas de baile',
         videoSelect:
             '¡Explore estos videos para experimentar la magia de Garner capturada en película!',
         videoSelectAttributionDance:

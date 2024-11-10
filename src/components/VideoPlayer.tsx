@@ -71,16 +71,16 @@ export const VideoPlayer = (props: VideoPlayerProps) => {
                     type="range"
                     value={progress()}
                     max={100}
-                    onTouchStart={(e) => {
+                    onTouchStart={() => {
                         setUserIsControllingVideo(true)
                     }}
-                    onTouchEnd={(e) => {
+                    onTouchEnd={() => {
                         setUserIsControllingVideo(false)
                     }}
-                    onMouseDown={(e) => {
+                    onMouseDown={() => {
                         setUserIsControllingVideo(true)
                     }}
-                    onMouseUp={(e) => {
+                    onMouseUp={() => {
                         setUserIsControllingVideo(false)
                     }}
                     onChange={(e) => {

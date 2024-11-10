@@ -101,8 +101,8 @@ export const decadesPicturesContent = [
                 es: 'Durante la década de 1950, la televisión difundió tendencias en música y baile como nunca antes.',
             },
             {
-                en: 'Many dances got lumped together into a single category called the Bop.',
-                es: 'Muchos bailes fueron agrupados en una sola categoría llamada Bop.',
+                en: 'Many dances got lumped together into a single category called the Bop. The enduring “Hokey Pokey” also originated in this decade.',
+                es: 'Muchos bailes fueron agrupados en una sola categoría llamada Bop. El perdurable “Hokey Pokey” también se originó en esta década.',
             },
         ],
     },

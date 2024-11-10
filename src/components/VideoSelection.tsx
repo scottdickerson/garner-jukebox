@@ -10,7 +10,7 @@ export interface VideoSelectionProps {
 
 export const VideoSelection = (props: VideoSelectionProps) => {
     return (
-        <div class="grid grid-cols-2 relative">
+        <div class="grid grid-cols-2 relative gap-x-6 gap-y-10">
             <a
                 href={`/${props.lang}/select`}
                 class="absolute top-0 right-[-100px] w-14 h-14"
@@ -22,7 +22,7 @@ export const VideoSelection = (props: VideoSelectionProps) => {
                     <img
                         src={`/images/videos/${props.lang}/${imageSrc}`}
                         alt="video"
-                        class="w-full object-cover"
+                        class="w-[521px] object-cover"
                     />
                 </a>
             ))}

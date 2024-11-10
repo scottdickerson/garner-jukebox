@@ -37,7 +37,7 @@ const videoImages: VideoSelectOption[] = Array.from(
         {translatedStrings[lang].videoSelect}
     </p>
     <VideoSelection lang={lang} videoImages={videoImages} />
-    <p class="max-w-[700px] text-22 font-tuffy text-center">
+    <p class="max-w-[700px] text-22 pt-10 font-tuffy text-center">
         {
             translatedStrings[lang][
                 videoType === 'homeVideo'
@@ -51,14 +51,14 @@ const videoImages: VideoSelectOption[] = Array.from(
             href={`/${lang}/videoSelect/dance`}
             class={videoType === 'dance' ? 'underline underline-offset-4' : ''}
         >
-            Dance Floor Videos
+            {translatedStrings[lang].danceFloorVideos}
         </a>&nbsp;|&nbsp; <a
             href={`/${lang}/videoSelect/homeVideo`}
             class={videoType === 'homeVideo'
                 ? 'underline underline-offset-8'
                 : ''}
         >
-            Home Videos
+            {translatedStrings[lang].homeMovies}
         </a>
     </div>
     <SendToAttractScreen timeoutInMs={7 * 60 * 1000} client:load />
