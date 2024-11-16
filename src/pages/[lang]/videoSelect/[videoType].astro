@@ -36,7 +36,11 @@ const videoImages: VideoSelectOption[] = Array.from(
     <p class="max-w-[700px] text-35 font-tuffy text-center pb-10">
         {translatedStrings[lang].videoSelect}
     </p>
-    <VideoSelection lang={lang} videoImages={videoImages} />
+    <VideoSelection
+        lang={lang}
+        videoImages={videoImages}
+        videoType={videoType}
+    />
     <p class="max-w-[700px] text-22 pt-10 font-tuffy text-center">
         {
             translatedStrings[lang][

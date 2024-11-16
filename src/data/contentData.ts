@@ -128,7 +128,7 @@ export const decadesPicturesContent = [
                 es: "La banda sonora empezó a sonar un poco más como <span>rock 'n' roll.</span>",
             },
             {
-                en: 'A Houston-based band called the Triumphs released a hit record called “Garner State Park,” rocked the airwaves across Texas. ',
+                en: 'A Houston-based band called the Triumphs released a hit record called “Garner State Park,” which rocked the airwaves across Texas. ',
                 es: 'Una banda de Houston llamada The Triumphs lanzó un exitoso disco llamado “Garner State Park” que sonó a más no poder en las radios de Texas.',
             },
             {
@@ -165,7 +165,7 @@ export const decadesPicturesContent = [
                 es: 'Pero aún había margen para que emergieran nuevas historias.',
             },
             {
-                en: 'Johnny Rodriguez,got his start right here at Garner. He returned often to play his hits, including “Ridin’ My Thumb to Mexico.”',
+                en: 'Johnny Rodriguez got his start right here at Garner. He returned often to play his hits, including “Ridin’ My Thumb to Mexico.”',
                 es: 'Johnny Rodriguez empezó justo aquí, en Garner. Regresó a menudo para tocar sus éxitos, entre ellos “Ridin’ My Thumb to Mexico”.',
             },
             {
