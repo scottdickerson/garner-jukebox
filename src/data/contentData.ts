@@ -17,7 +17,7 @@ export const decadesPicturesContent = [
             },
             {
                 en: 'There was no jukebox, so all music would have been played by live bands.',
-                es: 'No había rocola, así que toda la música la tocaban bandas en vivo.',
+                es: 'No había tocadiscos, así que toda la música la tocaban bandas en vivo.',
             },
             {
                 en: 'Some CCC enrollees recall a performance by <span class="underline">Bob Wills & His Texas Playboys.</span>',
@@ -52,7 +52,7 @@ export const decadesPicturesContent = [
             },
             {
                 en: 'The first jukebox arrived in this decade.',
-                es: 'La primera rocola llegó en esta década.',
+                es: 'El primer tocadisco llego en esta década.',
             },
             {
                 en: 'One record that surely spun often on this early music machine was Gene Autry’s version of “Blueberry Hill.”',
@@ -94,7 +94,7 @@ export const decadesPicturesContent = [
             },
             {
                 en: 'Big hits on the jukebox included the first appearance of Frankie Miller’s “Blackland Farmer” (which has remained on the playlist well into the 2020s).',
-                es: 'Los grandes éxitos en la rocola incluían la primera aparición de “Blackland Farmer” de Frankie Miller (que formó parte de la playlist hasta bien entrada la década de 2020).',
+                es: 'Los grandes éxitos en el tocadisco incluían la primera aparición de “Blackland Farmer” de Frankie Miller (que formo parte del playlist hasta bien entrada la década de 2020).',
             },
             {
                 en: 'During the 1950s, television spread trends in music and dance like never before. ',

@@ -19,9 +19,8 @@ export const translatedStrings = {
         previous: 'Anterior',
         next: 'Siguiente',
         back: 'Atrás',
-        garnerDescription: `Cada noche de verano, Garner cobra vida en el Pabellón. Durante
-                décadas, ha sido el escenario de una legendaria fiesta de baile. ¡Y
-                todos están invitados!`,
+        garnerDescription: `Cada noche de verano, Garner se llena de vida en el pabellón. Durante décadas, ha sido el
+escenario de una legendaria fiesta de baile. ¡Y todos están invitados!`,
         videos: 'Videos',
         homeMovies: 'Películas caseras',
         danceFloorVideos: 'Vídeos de pistas de baile',
