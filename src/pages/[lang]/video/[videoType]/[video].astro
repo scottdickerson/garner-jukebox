@@ -14,6 +14,8 @@ export function getStaticPaths() {
     )
 }
 
+export const prerender = true
+
 const { lang, videoType, video } = Astro.params as {
     lang: 'en' | 'es'
     videoType: 'dance' | 'homeVideo'

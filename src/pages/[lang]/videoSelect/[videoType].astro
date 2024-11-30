@@ -12,6 +12,8 @@ const { lang, videoType } = Astro.params as {
     videoType: 'dance' | 'homeVideo'
 }
 
+export const prerender = true
+
 export const getStaticPaths = () => {
     return Object.keys(translatedStrings).flatMap((lang) =>
         ['dance', 'homeVideo'].map((videoType) => ({

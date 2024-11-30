@@ -7,6 +7,8 @@ import { decadeAudioFiles } from '../../../utils/utils'
 import { AudioPlayer } from '../../../components/AudioPlayer'
 import { SendToAttractScreen } from '../../../components/SendToAttractScreen'
 
+export const prerender = true
+
 export const getStaticPaths = () => {
     return Object.keys(translatedStrings).flatMap((lang) =>
         decadesPicturesContent.map(({ id }) => ({
