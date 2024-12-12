@@ -52,7 +52,7 @@ export const decadesPicturesContent = [
             },
             {
                 en: 'The first jukebox arrived in this decade.',
-                es: 'El primer tocadisco llego en esta década.',
+                es: 'El primer tocadisco llegó en esta década.',
             },
             {
                 en: 'One record that surely spun often on this early music machine was Gene Autry’s version of “Blueberry Hill.”',
