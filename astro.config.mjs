@@ -1,7 +1,6 @@
 import { defineConfig } from 'astro/config'
 import solidJs from '@astrojs/solid-js'
 import tailwind from '@astrojs/tailwind'
-import vercel from '@astrojs/vercel/serverless'
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,8 +10,8 @@ export default defineConfig({
         }),
         tailwind(),
     ],
-    // output: 'static',
-    // By default we're building a static site to `/dist` but you can change for publishing to Vercel for previews here
-    output: 'server',
-    adapter: vercel(),
+    output: 'static',
+    // By default we're building a static site to `/dist` so it can be served by `serve -s dist` or `nginx` but you can change for publishing to Vercel as a serverless app by copying the astro.config.serverless.mjs over this file
+    // output: 'server',
+    // adapter: vercel(),
 })
