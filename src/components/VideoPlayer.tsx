@@ -20,7 +20,7 @@ export const VideoPlayer = (props: VideoPlayerProps) => {
         <div class="relative">
             <a
                 href={`/${props.lang}/videoSelect/${props.type}`}
-                class="absolute top-0 right-[-100px] w-14 h-14"
+                class="absolute top-0 right-[-75px] w-14 h-14"
             >
                 <img src="/images/CloseButton.svg" alt="Close" />
             </a>
@@ -37,7 +37,7 @@ export const VideoPlayer = (props: VideoPlayerProps) => {
             ) : null}
             <video
                 autoplay
-                class="h-[721px]"
+                class="h-[600px]"
                 src={props.src}
                 ref={setVideoPlayerRef}
                 onEnded={() => {

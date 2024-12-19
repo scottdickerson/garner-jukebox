@@ -22,10 +22,10 @@ export const VideoSelection = (props: VideoSelectionProps) => {
             >
                 <img src="/images/PreviousArrow.svg" alt="Dance Floor Videos" />
             </a>
-            <div class="grid grid-cols-2 relative gap-x-6 gap-y-10">
+            <div class="grid grid-cols-2 relative gap-x-6 gap-y-10 pt-4">
                 <a
                     href={`/${props.lang}/select`}
-                    class="absolute top-0 right-[-100px] w-14 h-14"
+                    class="absolute top-2 right-[-75px] w-14 h-14"
                 >
                     <img src="/images/CloseButton.svg" alt="Close" />
                 </a>

@@ -21,12 +21,12 @@ const { title } = Astro.props
     </head>
     <body class="h-svh bg-transparent text-white">
         <main
-            class="relative w-[2260px] h-[1261px] flex flex-col items-center justify-center bg-attractScreen bg-cover bg-center overflow-clip pl-40 pr-40"
+            class="relative w-full h-full flex flex-col items-center justify-center bg-attractScreen bg-cover bg-center overflow-clip pl-40 pr-40"
         >
-            <!-- <img
+            <img
                 src="/images/AttractClip.svg"
                 class="absolute z-10 pointer-events-none"
-            /> -->
+            />
             <slot />
         </main>
     </body>

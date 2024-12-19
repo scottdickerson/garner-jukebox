@@ -17,7 +17,7 @@ export const RecordNavItem = (
         <li {...props} class={classNames(props.class)}>
             <Link
                 class={classNames(
-                    'flex flex-col items-center justify-center rounded-full w-[270px] h-[270px] place-content-center text-center bg-cover bg-center bg-recordSmall',
+                    'flex flex-col items-center justify-center rounded-full w-[200px] h-[200px] place-content-center text-center bg-cover bg-center bg-recordSmall',
                     {
                         'animate-spin': isSpinning(),
                         'animate__animated animate__pulse animate__infinite animate__slow':

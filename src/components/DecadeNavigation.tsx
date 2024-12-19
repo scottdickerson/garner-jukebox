@@ -14,12 +14,14 @@ export const ContentNavigation = (props: ContentNavigationProps) => {
     return (
         <>
             <nav
-                class={classNames('w-full font-pacifico text-65', {
+                class={classNames('w-full font-pacifico', {
                     'pointer-events-none': isTransitioning(),
+                    'text-65': props.lang === 'en',
+                    'text-[40px]': props.lang === 'es',
                 })}
                 onClick={() => setIsTransitioning(true)}
             >
-                <ul class="flex items-center gap-16">
+                <ul class="flex items-center gap-14">
                     {decadesPicturesContent.map(({ id, heading }, index) => (
                         <RecordNavItem
                             class={classNames(

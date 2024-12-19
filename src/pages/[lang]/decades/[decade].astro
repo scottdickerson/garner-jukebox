@@ -6,6 +6,7 @@ import { ContentCarousel } from '../../../components/ContentCarousel'
 import { decadeAudioFiles } from '../../../utils/utils'
 import { AudioPlayer } from '../../../components/AudioPlayer'
 import { SendToAttractScreen } from '../../../components/SendToAttractScreen'
+import DetailLayout from '../../../layouts/DetailLayout.astro'
 
 export const prerender = true
 
@@ -26,11 +27,12 @@ const audioSrc = decadeAudioFiles.find((d) => d.decade === decade)?.audio
 ---
 
 <Layout title={`Decade: ${decade}`}>
-    <ContentCarousel
-        lang={lang as keyof typeof translatedStrings}
-        contentId={decade}
-        client:visible
-    />
-    <AudioPlayer src={audioSrc} client:load />
-    <SendToAttractScreen client:load />
+    <DetailLayout>
+        <ContentCarousel
+            lang={lang as keyof typeof translatedStrings}
+            contentId={decade}
+            client:visible
+        />
+        <AudioPlayer src={audioSrc} client:load />
+    </DetailLayout>
 </Layout>

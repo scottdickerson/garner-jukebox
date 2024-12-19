@@ -1,7 +1,9 @@
 import { type ParentProps, createMemo } from 'solid-js'
 import { validateContentExists } from '../utils/utils'
+import classNames from 'classnames'
 
 export interface ContentSwitcherProps extends ParentProps {
+    lang: string
     contentId: string
     heading?: string
     index: number
@@ -51,7 +53,11 @@ export const ContentSwitcher = (props: ContentSwitcherProps) => {
             </div>
             {props.caption && (
                 <figcaption
-                    class="text-white max-w-[700px] text-center text-35 leading-45 font-tuffy"
+                    class={classNames(
+                        'text-white max-w-[700px] text-center text-35 leading-45 font-tuffy',
+                        { 'text-35': props.lang === 'en' },
+                        { 'text-[25px]': props.lang === 'es' }
+                    )}
                     innerHTML={props.caption}
                 ></figcaption>
             )}

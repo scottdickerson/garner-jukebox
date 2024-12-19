@@ -1,8 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+import DetailLayout from '../../layouts/DetailLayout.astro'
 import { ContentNavigation } from '../../components/DecadeNavigation'
 import { translatedStrings } from '../../data/translations'
-import { SendToAttractScreen } from '../../components/SendToAttractScreen'
 
 export function getStaticPaths() {
     return Object.keys(translatedStrings).map((language: string) => ({
@@ -16,20 +16,21 @@ const { lang } = Astro.params as { lang: 'en' | 'es' }
 ---
 
 <Layout title="Select Decade">
-    <div class="flex flex-col h-full gap-4 justify-end items-center pb-28">
-        <div class="flex gap-10 items-center relative">
-            <a class="absolute top-[50%] left-[-130px] p-4" href="/">
-                <img src="/images/PreviousArrow.svg" alt="Back" />
-            </a>
-            <img
-                src={`/images/Title${lang === 'en' ? 'English' : 'Spanish'}.svg`}
-                class="w-[830px] h-[625px]"
-            />
-            <p class="max-w-[400px] text-35 font-tuffy">
-                {translatedStrings[lang].garnerDescription}
-            </p>
+    <DetailLayout>
+        <div class="flex flex-col h-full gap-4 justify-end items-center">
+            <div class="flex gap-10 items-center relative">
+                <a class="absolute top-[75%] left-[-130px] p-4" href="/">
+                    <img src="/images/PreviousArrow.svg" alt="Back" />
+                </a>
+                <img
+                    src={`/images/Title${lang === 'en' ? 'English' : 'Spanish'}.svg`}
+                    class="w-[830px] h-[625px]"
+                />
+                <p class="max-w-[400px] text-35 font-tuffy">
+                    {translatedStrings[lang].garnerDescription}
+                </p>
+            </div>
+            <ContentNavigation lang={lang} client:visible />
         </div>
-        <ContentNavigation lang={lang} client:visible />
-        <SendToAttractScreen client:load />
-    </div>
+    </DetailLayout>
 </Layout>

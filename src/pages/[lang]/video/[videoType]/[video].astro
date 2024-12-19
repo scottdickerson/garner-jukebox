@@ -3,6 +3,7 @@ import { translatedStrings } from '../../../../data/translations'
 import Layout from '../../../../layouts/Layout.astro'
 import { SendToAttractScreen } from '../../../../components/SendToAttractScreen'
 import { VideoPlayer } from '../../../../components/VideoPlayer'
+import DetailLayout from '../../../../layouts/DetailLayout.astro'
 
 export function getStaticPaths() {
     return Object.keys(translatedStrings).flatMap((lang) =>
@@ -27,6 +28,12 @@ const videoFileName = `/videos/${videoTypeName}Video${video}.mp4`
 ---
 
 <Layout title="Videos">
-    <VideoPlayer src={videoFileName} lang={lang} type={videoType} client:load />
-    <SendToAttractScreen timeoutInMs={7 * 60 * 1000} client:load />
+    <DetailLayout timeout={7 * 60 * 1000}>
+        <VideoPlayer
+            src={videoFileName}
+            lang={lang}
+            type={videoType}
+            client:load
+        />
+    </DetailLayout>
 </Layout>

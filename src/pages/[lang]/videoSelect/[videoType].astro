@@ -6,6 +6,7 @@ import {
 import Layout from '../../../layouts/Layout.astro'
 import { translatedStrings } from '../../../data/translations'
 import { SendToAttractScreen } from '../../../components/SendToAttractScreen'
+import DetailLayout from '../../../layouts/DetailLayout.astro'
 
 const { lang, videoType } = Astro.params as {
     lang: 'en' | 'es'
@@ -35,37 +36,40 @@ const videoImages: VideoSelectOption[] = Array.from(
 ---
 
 <Layout title={`Select Video: ${videoType}`}>
-    <p class="max-w-[700px] text-35 font-tuffy text-center pb-10">
-        {translatedStrings[lang].videoSelect}
-    </p>
-    <VideoSelection
-        lang={lang}
-        videoImages={videoImages}
-        videoType={videoType}
-    />
-    <p class="max-w-[700px] text-22 pt-10 font-tuffy text-center">
-        {
-            translatedStrings[lang][
-                videoType === 'homeVideo'
-                    ? 'videoSelectAttributionHome'
-                    : 'videoSelectAttributionDance'
-            ]
-        }
-    </p>
-    <div class="flex justify-center pt-10 text-35 font-tuffy">
-        <a
-            href={`/${lang}/videoSelect/dance`}
-            class={videoType === 'dance' ? 'underline underline-offset-4' : ''}
-        >
-            {translatedStrings[lang].danceFloorVideos}
-        </a>&nbsp;|&nbsp; <a
-            href={`/${lang}/videoSelect/homeVideo`}
-            class={videoType === 'homeVideo'
-                ? 'underline underline-offset-8'
-                : ''}
-        >
-            {translatedStrings[lang].homeMovies}
-        </a>
-    </div>
-    <SendToAttractScreen timeoutInMs={7 * 60 * 1000} client:load />
+    <DetailLayout>
+        <p class="max-w-[700px] text-35 font-tuffy text-center pb-4">
+            {translatedStrings[lang].videoSelect}
+        </p>
+        <VideoSelection
+            lang={lang}
+            videoImages={videoImages}
+            videoType={videoType}
+        />
+        <p class="max-w-[700px] text-22 pt-6 font-tuffy text-center">
+            {
+                translatedStrings[lang][
+                    videoType === 'homeVideo'
+                        ? 'videoSelectAttributionHome'
+                        : 'videoSelectAttributionDance'
+                ]
+            }
+        </p>
+        <div class="flex justify-center items-center text-35 font-tuffy">
+            <a
+                href={`/${lang}/videoSelect/dance`}
+                class={videoType === 'dance'
+                    ? 'underline underline-offset-4'
+                    : ''}
+            >
+                {translatedStrings[lang].danceFloorVideos}
+            </a>&nbsp;|&nbsp; <a
+                href={`/${lang}/videoSelect/homeVideo`}
+                class={videoType === 'homeVideo'
+                    ? 'underline underline-offset-8'
+                    : ''}
+            >
+                {translatedStrings[lang].homeMovies}
+            </a>
+        </div>
+    </DetailLayout>
 </Layout>
