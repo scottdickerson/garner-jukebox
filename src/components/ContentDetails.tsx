@@ -72,7 +72,7 @@ export interface ContentDetails extends ContentSwitcherProps {
 
 export const ContentDetails = (props: ContentDetails) => {
     return (
-        <div class="w-[1000px] h-[1000px] bg-recordSmall bg-cover flex items-center flex-col gap-11 pt-20 text-65 leading-77">
+        <div class="-translate-y-10 w-[1000px] h-[1000px] bg-recordSmall bg-cover flex items-center flex-col pt-10 gap-11 text-65 leading-77">
             <div class="relative flex flex-col w-full">
                 <h1 class="text-white text-center font-pacifico min-h-[77px]">
                     {props.heading ? `${props.heading}:` : null}
@@ -82,7 +82,7 @@ export const ContentDetails = (props: ContentDetails) => {
                 </h2>
                 <a
                     href={`/${props.lang}/select`}
-                    class="absolute top-[35%] right-0 w-14 h-14"
+                    class="absolute top-[45%] right-8 w-14 h-14"
                 >
                     <img src="/images/CloseButton.svg" alt="Close" />
                 </a>
