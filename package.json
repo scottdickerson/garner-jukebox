@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && sudo cp -r ./dist/* /usr/share/nginx/html",
     "preview": "astro preview",
     "astro": "astro",
     "format:fix": "prettier --write .",
