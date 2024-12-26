@@ -8,7 +8,7 @@ export interface AudioPlayerProps {
  * This component finds the previously created audio element and plays it if it's not already playing.
  */
 export const AudioPlayer = (props: AudioPlayerProps) => {
-    let audioRef: HTMLAudioElement
+    let audioRef: HTMLAudioElement | null = null
 
     createEffect(() => {
         if (audioRef?.paused) {
@@ -22,10 +22,10 @@ export const AudioPlayer = (props: AudioPlayerProps) => {
     return props.src ? (
         // @ts-ignore
         <audio
-            ref={audioRef}
+            ref={(el) => (audioRef = el)}
             src={props.src}
-            onPlay={() => {
-                audioRef.volume = 0.3
+            onPlaying={() => {
+                audioRef!.volume = 0.3
             }}
         ></audio>
     ) : undefined
