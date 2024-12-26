@@ -56,7 +56,7 @@ export const ContentSwitcher = (props: ContentSwitcherProps) => {
                     class={classNames(
                         'text-white max-w-[700px] text-center text-35 leading-45 font-tuffy',
                         { 'text-35': props.lang === 'en' },
-                        { 'text-[25px]': props.lang === 'es' }
+                        { 'text-[30px]': props.lang === 'es' }
                     )}
                     innerHTML={props.caption}
                 ></figcaption>
@@ -72,7 +72,7 @@ export interface ContentDetails extends ContentSwitcherProps {
 
 export const ContentDetails = (props: ContentDetails) => {
     return (
-        <div class="-translate-y-10 w-[1000px] h-[1000px] bg-recordSmall bg-cover flex items-center flex-col pt-10 gap-11 text-65 leading-77">
+        <div class="-translate-y-16 w-[1000px] h-[1000px] bg-recordSmall bg-cover flex items-center flex-col pt-16 gap-11 text-65 leading-77">
             <div class="relative flex flex-col w-full">
                 <h1 class="text-white text-center font-pacifico min-h-[77px]">
                     {props.heading ? `${props.heading}:` : null}
@@ -82,7 +82,7 @@ export const ContentDetails = (props: ContentDetails) => {
                 </h2>
                 <a
                     href={`/${props.lang}/select`}
-                    class="absolute top-[45%] right-8 w-14 h-14"
+                    class="absolute top-[55%] right-8 w-14 h-14"
                 >
                     <img src="/images/CloseButton.svg" alt="Close" />
                 </a>

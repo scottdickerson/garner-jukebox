@@ -14,7 +14,7 @@ export const ContentNavigation = (props: ContentNavigationProps) => {
     return (
         <>
             <nav
-                class={classNames('w-full font-pacifico', {
+                class={classNames('w-full font-pacifico pb-8', {
                     'pointer-events-none': isTransitioning(),
                     'text-65': props.lang === 'en',
                     'text-[40px]': props.lang === 'es',

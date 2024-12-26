@@ -8,7 +8,7 @@ interface Props {
 const { timeout } = Astro.props
 ---
 
-<div class="pt-24 pb-4 flex flex-col items-center">
+<div class="pt-52 pb-4 flex flex-col items-center">
     <slot />
     <SendToAttractScreen timeoutInMs={timeout ?? 60000} client:load />
 </div>
