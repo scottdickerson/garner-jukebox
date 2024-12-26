@@ -40,6 +40,10 @@ export const VideoPlayer = (props: VideoPlayerProps) => {
                 class="h-[600px]"
                 src={props.src}
                 ref={setVideoPlayerRef}
+                onPlay={() => {
+                    videoPlayerRef()!.volume =
+                        props.type === 'homeVideo' ? 0.3 : 1
+                }}
                 onEnded={() => {
                     setIsVideoPlaying(false)
                 }}

@@ -21,6 +21,12 @@ export const AudioPlayer = (props: AudioPlayerProps) => {
 
     return props.src ? (
         // @ts-ignore
-        <audio ref={audioRef} src={props.src}></audio>
+        <audio
+            ref={audioRef}
+            src={props.src}
+            onPlay={() => {
+                audioRef.volume = 0.3
+            }}
+        ></audio>
     ) : undefined
 }
